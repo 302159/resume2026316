@@ -1,241 +1,184 @@
-<!DOCTYPE html>
-<html lang="zh-TW">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>個人履歷 | 温心芸</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
-            background: #fff;
-            color: #333;
-            line-height: 1.6;
-        }
-
-        /* 整個履歷容器 */
-        .resume-wrapper {
-            display: flex;
-            max-width: 1000px;
-            margin: 0 auto;
-            min-height: 100vh;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-        }
-
-        /* 左側欄：深色背景 */
-        .sidebar {
-            width: 35%;
-            background-color: #555555; /* 參考圖片的深灰色 */
-            color: white;
-            padding: 40px 30px;
-        }
-
-        .profile-img {
-            width: 100%;
-            aspect-ratio: 1/1;
-            object-fit: cover;
-            margin-bottom: 30px;
-            border: 2px solid rgba(255,255,255,0.2);
-        }
-
-        .sidebar h3 {
-            font-size: 1.2rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 15px;
-            border-bottom: 1px solid rgba(255,255,255,0.3);
-            padding-bottom: 5px;
-            margin-top: 30px;
-        }
-
-        .contact-info, .expertise-list {
-            list-style: none;
-            font-size: 0.9rem;
-        }
-
-        .contact-info li {
-            margin-bottom: 15px;
-        }
-
-        .contact-info b {
-            display: block;
-            color: #ccc;
-            font-size: 0.8rem;
-        }
-
-        .expertise-list li {
-            margin-bottom: 8px;
-            position: relative;
-            padding-left: 15px;
-        }
-
-        .expertise-list li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-        }
-
-        /* 右側主內容 */
-        .main-content {
-            width: 65%;
-            padding: 60px 50px;
-            background: #fff;
-        }
-
-        .header-name h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            color: #333;
-            line-height: 1;
-        }
-
-        .header-name p {
-            font-size: 1.2rem;
-            color: #666;
-            letter-spacing: 3px;
-            margin-top: 10px;
-            text-transform: uppercase;
-        }
-
-        .section {
-            margin-top: 40px;
-        }
-
-        .section-title {
-            font-size: 1.3rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-bottom: 15px;
-            letter-spacing: 1px;
-            color: #222;
-        }
-
-        .section-content {
-            font-size: 1rem;
-            color: #555;
-            text-align: justify;
-        }
-
-        /* 作品項目樣式 */
-        .project-item {
-            margin-bottom: 20px;
-        }
-
-        .project-item h4 {
-            color: #333;
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-        }
-
-        .project-list {
-            list-style: disc;
-            margin-left: 20px;
-            color: #555;
-        }
-
-        .project-list li {
-            margin-bottom: 5px;
-        }
-
-        button {
-            margin-top: 10px;
-            padding: 8px 15px;
-            background: #555;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 4px;
-        }
-
-        /* 手機板調整 */
-        @media (max-width: 768px) {
-            .resume-wrapper {
-                flex-direction: column;
-            }
-            .sidebar, .main-content {
-                width: 100%;
-                padding: 30px;
-            }
-        }
-    </style>
-</head>
-<body>
-
-<div class="resume-wrapper">
-    <aside class="sidebar">
-        <img src="images/225570.jpg" alt="個人照片" class="profile-img">
-        
-        <h3>聯絡資訊</h3>
-        <ul class="contact-info">
-            <li><b>電話</b> 09XX-XXX-XXX</li>
-            <li><b>Email</b> 114055011@live.asia.edu.tw</li>
-            <li><b>學號</b> 114055011</li>
-            <li><b>地址</b> 台中市霧峰區柳豐路500號</li>
-        </ul>
-
-        <h3>專業技能</h3>
-        <ul class="expertise-list">
-            <li>AutoCAD 空間繪圖</li>
-            <li>SketchUp 3D 建模</li>
-            <li>手工模型製作</li>
-            <li>空間平面規劃</li>
-            <li>平面設計基礎</li>
-        </ul>
-    </aside>
-
-    <main class="main-content">
-        <div class="header-name">
-            <h1>温心芸</h1>
-            <p>Interior Design Student</p>
-        </div>
-
-        <section class="section">
-            <h2 class="section-title">關於我 / About Me</h2>
-            <div class="section-content">
-                我是亞洲大學室內設計系一年級學生，對空間設計與氛圍營造有濃厚興趣。
-                目前專注於學習空間規劃、模型製作與設計基礎，致力於將美學與實用性結合，
-                目標是未來成為一位能解決空間問題的專業室內設計師。
-            </div>
-        </section>
-
-        <section class="section">
-            <h2 class="section-title">作品項目 / Projects</h2>
-            <div class="project-item">
-                <ul class="project-list">
-                    <li>咖啡廳空間平面配置設計</li>
-                    <li>快閃店品牌模型設計</li>
-                    <li>室內照明天花板設計圖</li>
-                    <li>室內空間比例模型製作</li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2 class="section-title">教育背景 / Education</h2>
-            <div class="project-item">
-                <h4>亞洲大學</h4>
-                <p>室內設計學系 | 一年級在學 | 2025 - 至今</p>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2 class="section-title">聯絡確認</h2>
-            <button onclick="showEmail()">點擊顯示完整 Email</button>
-            <p id="email-display" style="margin-top:10px; font-weight: bold; color: #4ca1af;"></p>
-        </section>
-    </main>
-</div>
-
-<script>
-    function showEmail(){
-        document.getElementById("email-display").innerText = "114055011@live.asia.edu.tw";
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
     }
-</script>
 
-</body>
-</html>
+    body {
+        font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+        background: #f4f4f4;
+        color: #333;
+        line-height: 1.8;
+    }
+
+    .resume-wrapper {
+        display: flex;
+        max-width: 900px; /* 稍微縮小寬度，視覺更集中 */
+        margin: 40px auto;
+        min-height: 1100px;
+        background: #fff;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    /* 左側欄 */
+    .sidebar {
+        width: 33%;
+        background-color: #5d5d5d; /* 調整為更沉穩的灰色 */
+        color: white;
+        padding: 40px 25px;
+    }
+
+    .profile-img {
+        width: 100%;
+        aspect-ratio: 1/1;
+        object-fit: cover;
+        margin-bottom: 40px;
+        border-radius: 2px; /* 稍微帶點圓角 */
+    }
+
+    .sidebar h3 {
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        margin-bottom: 15px;
+        border-bottom: 1px solid rgba(255,255,255,0.2);
+        padding-bottom: 8px;
+        margin-top: 40px;
+        font-weight: 600;
+    }
+
+    .contact-info, .expertise-list {
+        list-style: none;
+        font-size: 0.85rem;
+    }
+
+    .contact-info li {
+        margin-bottom: 18px;
+    }
+
+    .contact-info b {
+        display: block;
+        color: #bbb;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        margin-bottom: 2px;
+    }
+
+    .expertise-list li {
+        margin-bottom: 10px;
+        padding-left: 15px;
+        position: relative;
+        color: #eee;
+    }
+
+    .expertise-list li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 8px;
+        width: 4px;
+        height: 4px;
+        background: #fff;
+        border-radius: 50%;
+    }
+
+    /* 右側主內容 */
+    .main-content {
+        width: 67%;
+        padding: 0; /* 移除 padding 讓頂部裝飾能貼邊 */
+        background: #fff;
+        position: relative;
+    }
+
+    /* 頂部裝飾背景 */
+    .header-bg {
+        background-color: #efefef;
+        padding: 60px 50px;
+        clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%); /* 仿範本斜角效果 */
+    }
+
+    .header-name h1 {
+        font-size: 3.2rem;
+        font-weight: 800;
+        color: #333;
+        letter-spacing: 2px;
+    }
+
+    .header-name p {
+        font-size: 1.1rem;
+        color: #777;
+        letter-spacing: 5px;
+        margin-top: 5px;
+        text-transform: uppercase;
+    }
+
+    .content-body {
+        padding: 20px 50px 50px 50px;
+    }
+
+    .section {
+        margin-top: 45px;
+    }
+
+    .section-title {
+        font-size: 1.25rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        letter-spacing: 2px;
+        color: #333;
+        position: relative;
+    }
+
+    .section-content {
+        font-size: 0.95rem;
+        color: #666;
+        text-align: justify;
+    }
+
+    .project-item {
+        margin-bottom: 25px;
+    }
+
+    .project-item h4 {
+        color: #333;
+        font-size: 1rem;
+        font-weight: 700;
+        margin-bottom: 5px;
+    }
+
+    .project-list {
+        list-style: none; /* 移除預設點點 */
+        color: #666;
+    }
+
+    .project-list li {
+        margin-bottom: 8px;
+        font-size: 0.95rem;
+    }
+
+    /* 按鈕樣式美化 */
+    button {
+        margin-top: 15px;
+        padding: 10px 20px;
+        background: #5d5d5d;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background: #333;
+    }
+
+    @media (max-width: 768px) {
+        .resume-wrapper { flex-direction: column; margin: 0; }
+        .sidebar, .main-content { width: 100%; }
+        .header-bg { clip-path: none; padding: 40px 30px; }
+        .content-body { padding: 30px; }
+    }
+</style>
