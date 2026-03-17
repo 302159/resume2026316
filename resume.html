@@ -1,184 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>個人履歷 | 温心芸</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <style>
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
+    :root {
+        --primary-dark: #3d3d3d;
+        --accent-color: #4ca1af;
+        --bg-light: #f8f9fa;
+        --text-main: #333;
     }
 
+    * { box-sizing: border-box; }
+
     body {
-        font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
-        background: #f4f4f4;
-        color: #333;
-        line-height: 1.8;
+        margin: 0;
+        font-family: "PingFang TC", "Microsoft JhengHei", sans-serif;
+        background: var(--bg-light);
+        color: var(--text-main);
+        line-height: 1.6;
     }
 
     .resume-wrapper {
         display: flex;
-        max-width: 900px; /* 稍微縮小寬度，視覺更集中 */
+        max-width: 1000px;
         margin: 40px auto;
-        min-height: 1100px;
-        background: #fff;
+        background: white;
         box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        min-height: 1100px;
     }
 
-    /* 左側欄 */
+    /* 左側側邊欄 */
     .sidebar {
-        width: 33%;
-        background-color: #5d5d5d; /* 調整為更沉穩的灰色 */
+        width: 35%;
+        background: var(--primary-dark);
         color: white;
-        padding: 40px 25px;
+        padding: 40px 30px;
     }
 
     .profile-img {
         width: 100%;
         aspect-ratio: 1/1;
+        border-radius: 10px;
         object-fit: cover;
-        margin-bottom: 40px;
-        border-radius: 2px; /* 稍微帶點圓角 */
+        margin-bottom: 30px;
+        border: 2px solid rgba(255,255,255,0.2);
     }
 
-    .sidebar h3 {
-        font-size: 1.1rem;
-        text-transform: uppercase;
-        letter-spacing: 3px;
-        margin-bottom: 15px;
+    .sidebar h2 {
+        font-size: 1.2rem;
         border-bottom: 1px solid rgba(255,255,255,0.2);
-        padding-bottom: 8px;
+        padding-bottom: 10px;
         margin-top: 40px;
-        font-weight: 600;
-    }
-
-    .contact-info, .expertise-list {
-        list-style: none;
-        font-size: 0.85rem;
-    }
-
-    .contact-info li {
-        margin-bottom: 18px;
-    }
-
-    .contact-info b {
-        display: block;
-        color: #bbb;
-        font-size: 0.75rem;
+        letter-spacing: 2px;
         text-transform: uppercase;
-        margin-bottom: 2px;
     }
 
-    .expertise-list li {
-        margin-bottom: 10px;
-        padding-left: 15px;
-        position: relative;
-        color: #eee;
+    .contact-info p {
+        font-size: 0.9rem;
+        margin: 15px 0;
+        display: flex;
+        align-items: center;
     }
 
-    .expertise-list li::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 8px;
-        width: 4px;
-        height: 4px;
-        background: #fff;
-        border-radius: 50%;
+    .contact-info i { margin-right: 10px; color: var(--accent-color); }
+
+    .skill-tag {
+        display: inline-block;
+        border: 1px solid rgba(255,255,255,0.4);
+        padding: 4px 10px;
+        margin: 4px;
+        font-size: 0.85rem;
+        border-radius: 4px;
     }
 
     /* 右側主內容 */
     .main-content {
-        width: 67%;
-        padding: 0; /* 移除 padding 讓頂部裝飾能貼邊 */
-        background: #fff;
-        position: relative;
-    }
-
-    /* 頂部裝飾背景 */
-    .header-bg {
-        background-color: #efefef;
-        padding: 60px 50px;
-        clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%); /* 仿範本斜角效果 */
+        width: 65%;
+        padding: 50px;
     }
 
     .header-name h1 {
-        font-size: 3.2rem;
-        font-weight: 800;
-        color: #333;
-        letter-spacing: 2px;
+        font-size: 3rem;
+        margin: 0;
+        color: var(--primary-dark);
+        letter-spacing: 5px;
     }
 
     .header-name p {
-        font-size: 1.1rem;
-        color: #777;
-        letter-spacing: 5px;
+        font-size: 1.2rem;
+        color: var(--accent-color);
         margin-top: 5px;
-        text-transform: uppercase;
+        font-weight: bold;
     }
 
-    .content-body {
-        padding: 20px 50px 50px 50px;
-    }
+    section { margin-top: 40px; }
 
-    .section {
-        margin-top: 45px;
-    }
-
-    .section-title {
-        font-size: 1.25rem;
-        font-weight: 800;
-        text-transform: uppercase;
+    section h2 {
+        font-size: 1.4rem;
+        color: var(--primary-dark);
+        border-left: 5px solid var(--accent-color);
+        padding-left: 15px;
         margin-bottom: 20px;
-        letter-spacing: 2px;
-        color: #333;
-        position: relative;
-    }
-
-    .section-content {
-        font-size: 0.95rem;
-        color: #666;
-        text-align: justify;
     }
 
     .project-item {
-        margin-bottom: 25px;
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+        border-bottom: 1px dashed #ddd;
     }
 
-    .project-item h4 {
-        color: #333;
-        font-size: 1rem;
-        font-weight: 700;
-        margin-bottom: 5px;
-    }
+    .project-item:last-child { border: none; }
 
-    .project-list {
-        list-style: none; /* 移除預設點點 */
-        color: #666;
-    }
-
-    .project-list li {
-        margin-bottom: 8px;
-        font-size: 0.95rem;
-    }
-
-    /* 按鈕樣式美化 */
-    button {
-        margin-top: 15px;
-        padding: 10px 20px;
-        background: #5d5d5d;
+    /* 按鈕樣式 */
+    .btn-email {
+        background: var(--accent-color);
         color: white;
         border: none;
+        padding: 8px 15px;
+        border-radius: 5px;
         cursor: pointer;
-        font-size: 0.8rem;
-        letter-spacing: 1px;
         transition: 0.3s;
     }
 
-    button:hover {
-        background: #333;
-    }
+    .btn-email:hover { background: #357a85; }
 
+    /* 手機版調整 */
     @media (max-width: 768px) {
         .resume-wrapper { flex-direction: column; margin: 0; }
-        .sidebar, .main-content { width: 100%; }
-        .header-bg { clip-path: none; padding: 40px 30px; }
-        .content-body { padding: 30px; }
+        .sidebar, .main-content { width: 100%; padding: 30px; }
     }
 </style>
+</head>
+<body>
+
+<div class="resume-wrapper">
+    <aside class="sidebar">
+        <img src="images/225570.jpg" alt="個人照片" class="profile-img">
+        
+        <h2>聯絡資訊</h2>
+        <div class="contact-info">
+            <p><i class="fas fa-university"></i> 亞洲大學</p>
+            <p><i class="fas fa-id-card"></i> 114055011</p>
+            <p><i class="fas fa-envelope"></i> <span id="email-text">********@live.asia.edu.tw</span></p>
+            <button class="btn-email" onclick="showEmail()">顯示完整 Email</button>
+        </div>
+
+        <h2>專業技能</h2>
+        <div class="skills">
+            <span class="skill-tag">AutoCAD</span>
+            <span class="skill-tag">SketchUp</span>
+            <span class="skill-tag">模型製作</span>
+            <span class="skill-tag">空間規劃</span>
+            <span class="skill-tag">平面設計</span>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="header-name">
+            <h1>温心芸</h1>
+            <p>INTERIOR DESIGN STUDENT</p>
+        </header>
+
+        <section>
+            <h2>關於我 / About Me</h2>
+            <p>
+                我是亞洲大學室內設計系一年級學生，對空間設計與氛圍營造有濃厚興趣。
+                目前專注於學習空間規劃、模型製作與設計基礎。我具備細心的觀察力與美感敏銳度，
+                目標是將創意轉化為具備機能與溫度的生活空間。
+            </p>
+        </section>
+
+        <section>
+            <h2>作品與課程項目</h2>
+            <div class="project-item">
+                <strong>咖啡廳空間平面配置設計</strong>
+                <p>學習如何分配客席區、工作區動線，並練習基礎平面製圖。</p>
+            </div>
+            <div class="project-item">
+                <strong>快閃店模型設計</strong>
+                <p>運用異材質結合，呈現品牌概念縮影之微縮空間模型。</p>
+            </div>
+            <div class="project-item">
+                <strong>室內照明天花板設計圖</strong>
+                <p>理解燈光對氛圍的影響，練習 AutoCAD 繪製天花板燈具配置圖。</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>教育背景</h2>
+            <p><strong>亞洲大學 室內設計學系</strong><br>2025 - 至今 (一年級在讀)</p>
+        </section>
+    </main>
+</div>
+
+<script>
+function showEmail(){
+    document.getElementById("email-text").innerText = "114055011@live.asia.edu.tw";
+}
+</script>
+
+</body>
+</html>
