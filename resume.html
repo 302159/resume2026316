@@ -1,205 +1,314 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>個人履歷 | 温心芸</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-<style>
-    :root {
-        --primary-dark: #3d3d3d;
-        --accent-color: #4ca1af;
-        --bg-light: #f8f9fa;
-        --text-main: #333;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>個人履歷 | 温心芸</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --sidebar-bg: #555555; /* 參考圖片深灰色 */
+            --main-text: #333333;
+            --sub-text: #666666;
+            --accent-gray: #f4f4f4;
+        }
 
-    * { box-sizing: border-box; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    body {
-        margin: 0;
-        font-family: "PingFang TC", "Microsoft JhengHei", sans-serif;
-        background: var(--bg-light);
-        color: var(--text-main);
-        line-height: 1.6;
-    }
+        body {
+            font-family: "Noto Sans TC", sans-serif;
+            background: #e0e0e0;
+            color: var(--main-text);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
 
-    .resume-wrapper {
-        display: flex;
-        max-width: 1000px;
-        margin: 40px auto;
-        background: white;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        min-height: 1100px;
-    }
+        .resume-wrapper {
+            display: flex;
+            max-width: 900px;
+            margin: 0 auto;
+            min-height: 1100px;
+            background: #fff;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
 
-    /* 左側側邊欄 */
-    .sidebar {
-        width: 35%;
-        background: var(--primary-dark);
-        color: white;
-        padding: 40px 30px;
-    }
+        /* 左側欄：深色背景 */
+        .sidebar {
+            width: 35%;
+            background-color: var(--sidebar-bg);
+            color: white;
+            padding: 0 0 40px 0;
+        }
 
-    .profile-img {
-        width: 100%;
-        aspect-ratio: 1/1;
-        border-radius: 10px;
-        object-fit: cover;
-        margin-bottom: 30px;
-        border: 2px solid rgba(255,255,255,0.2);
-    }
+        .profile-img-container {
+            width: 100%;
+            margin-bottom: 20px;
+        }
 
-    .sidebar h2 {
-        font-size: 1.2rem;
-        border-bottom: 1px solid rgba(255,255,255,0.2);
-        padding-bottom: 10px;
-        margin-top: 40px;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-    }
+        .profile-img {
+            width: 100%;
+            aspect-ratio: 1/1.2; /* 稍微拉長符合模特兒照片比例 */
+            object-fit: cover;
+            display: block;
+        }
 
-    .contact-info p {
-        font-size: 0.9rem;
-        margin: 15px 0;
-        display: flex;
-        align-items: center;
-    }
+        .sidebar-inner {
+            padding: 0 30px;
+        }
 
-    .contact-info i { margin-right: 10px; color: var(--accent-color); }
+        .sidebar h3 {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            margin-top: 35px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding-bottom: 5px;
+        }
 
-    .skill-tag {
-        display: inline-block;
-        border: 1px solid rgba(255,255,255,0.4);
-        padding: 4px 10px;
-        margin: 4px;
-        font-size: 0.85rem;
-        border-radius: 4px;
-    }
+        .contact-info, .expertise-list {
+            list-style: none;
+            font-size: 0.9rem;
+        }
 
-    /* 右側主內容 */
-    .main-content {
-        width: 65%;
-        padding: 50px;
-    }
+        .contact-info li {
+            margin-bottom: 15px;
+        }
 
-    .header-name h1 {
-        font-size: 3rem;
-        margin: 0;
-        color: var(--primary-dark);
-        letter-spacing: 5px;
-    }
+        .contact-info b {
+            display: block;
+            color: #bbb;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+        }
 
-    .header-name p {
-        font-size: 1.2rem;
-        color: var(--accent-color);
-        margin-top: 5px;
-        font-weight: bold;
-    }
+        .expertise-list li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 15px;
+        }
 
-    section { margin-top: 40px; }
+        .expertise-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #ccc;
+        }
 
-    section h2 {
-        font-size: 1.4rem;
-        color: var(--primary-dark);
-        border-left: 5px solid var(--accent-color);
-        padding-left: 15px;
-        margin-bottom: 20px;
-    }
+        /* 右側主內容 */
+        .main-content {
+            width: 65%;
+            padding: 60px 45px;
+            background: #fff;
+        }
 
-    .project-item {
-        margin-bottom: 15px;
-        padding-bottom: 15px;
-        border-bottom: 1px dashed #ddd;
-    }
+        .header-name {
+            margin-bottom: 50px;
+        }
 
-    .project-item:last-child { border: none; }
+        .header-name h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #333;
+            letter-spacing: 3px;
+            line-height: 1;
+        }
 
-    /* 按鈕樣式 */
-    .btn-email {
-        background: var(--accent-color);
-        color: white;
-        border: none;
-        padding: 8px 15px;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: 0.3s;
-    }
+        .header-name p {
+            font-size: 1.2rem;
+            color: #888;
+            letter-spacing: 4px;
+            margin-top: 10px;
+            text-transform: uppercase;
+        }
 
-    .btn-email:hover { background: #357a85; }
+        .section {
+            margin-top: 40px;
+        }
 
-    /* 手機版調整 */
-    @media (max-width: 768px) {
-        .resume-wrapper { flex-direction: column; margin: 0; }
-        .sidebar, .main-content { width: 100%; padding: 30px; }
-    }
-</style>
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            color: #222;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title::after {
+            content: "";
+            flex-grow: 1;
+            height: 1px;
+            background: #eee;
+            margin-left: 15px;
+        }
+
+        .section-content {
+            font-size: 0.95rem;
+            color: #555;
+            text-align: justify;
+        }
+
+        /* 項目列表樣式 */
+        .item-row {
+            display: flex;
+            margin-bottom: 25px;
+        }
+
+        .item-time {
+            width: 120px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+        .item-desc {
+            flex: 1;
+        }
+
+        .item-desc h4 {
+            font-size: 1.05rem;
+            margin-bottom: 5px;
+            color: #222;
+        }
+
+        .project-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .project-list li {
+            margin-bottom: 6px;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .project-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #999;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 8px 20px;
+            background: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 2px;
+            font-size: 0.8rem;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #666;
+        }
+
+        #email-display {
+            display: inline-block;
+            margin-left: 10px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        /* 手機板調整 */
+        @media (max-width: 768px) {
+            .resume-wrapper {
+                flex-direction: column;
+            }
+            .sidebar, .main-content {
+                width: 100%;
+                padding: 30px;
+            }
+            .header-name h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
 <div class="resume-wrapper">
     <aside class="sidebar">
-        <img src="images/225570.jpg" alt="個人照片" class="profile-img">
-        
-        <h2>聯絡資訊</h2>
-        <div class="contact-info">
-            <p><i class="fas fa-university"></i> 亞洲大學</p>
-            <p><i class="fas fa-id-card"></i> 114055011</p>
-            <p><i class="fas fa-envelope"></i> <span id="email-text">********@live.asia.edu.tw</span></p>
-            <button class="btn-email" onclick="showEmail()">顯示完整 Email</button>
+        <div class="profile-img-container">
+            <img src="images/225570.jpg" alt="溫心芸個人照片" class="profile-img">
         </div>
+        
+        <div class="sidebar-inner">
+            <h3>聯絡資訊</h3>
+            <ul class="contact-info">
+                <li><b>電話 Phone</b> 09XX-XXX-XXX</li>
+                <li><b>信箱 Email</b> 114055011@live.asia.edu.tw</li>
+                <li><b>學號 ID</b> 114055011</li>
+                <li><b>地址 Address</b> 台中市霧峰區柳豐路500號</li>
+            </ul>
 
-        <h2>專業技能</h2>
-        <div class="skills">
-            <span class="skill-tag">AutoCAD</span>
-            <span class="skill-tag">SketchUp</span>
-            <span class="skill-tag">模型製作</span>
-            <span class="skill-tag">空間規劃</span>
-            <span class="skill-tag">平面設計</span>
+            <h3>專業技能</h3>
+            <ul class="expertise-list">
+                <li>AutoCAD 空間繪圖</li>
+                <li>SketchUp 3D 建模</li>
+                <li>手工模型製作</li>
+                <li>空間平面規劃</li>
+                <li>平面設計基礎</li>
+            </ul>
         </div>
     </aside>
 
     <main class="main-content">
-        <header class="header-name">
+        <div class="header-name">
             <h1>温心芸</h1>
-            <p>INTERIOR DESIGN STUDENT</p>
-        </header>
+            <p>Interior Design Student</p>
+        </div>
 
-        <section>
-            <h2>關於我 / About Me</h2>
-            <p>
-                我是亞洲大學室內設計系一年級學生，對空間設計與氛圍營造有濃厚興趣。
-                目前專注於學習空間規劃、模型製作與設計基礎。我具備細心的觀察力與美感敏銳度，
-                目標是將創意轉化為具備機能與溫度的生活空間。
-            </p>
-        </section>
-
-        <section>
-            <h2>作品與課程項目</h2>
-            <div class="project-item">
-                <strong>咖啡廳空間平面配置設計</strong>
-                <p>學習如何分配客席區、工作區動線，並練習基礎平面製圖。</p>
-            </div>
-            <div class="project-item">
-                <strong>快閃店模型設計</strong>
-                <p>運用異材質結合，呈現品牌概念縮影之微縮空間模型。</p>
-            </div>
-            <div class="project-item">
-                <strong>室內照明天花板設計圖</strong>
-                <p>理解燈光對氛圍的影響，練習 AutoCAD 繪製天花板燈具配置圖。</p>
+        <section class="section">
+            <h2 class="section-title">關於我 / About Me</h2>
+            <div class="section-content">
+                我是亞洲大學室內設計系一年級學生，對空間設計與氛圍營造有濃厚興趣。目前專注於學習空間規劃、模型製作與設計基礎，致力於將美學與實用性結合，目標是未來成為一位能解決空間問題的專業室內設計師。
             </div>
         </section>
 
-        <section>
-            <h2>教育背景</h2>
-            <p><strong>亞洲大學 室內設計學系</strong><br>2025 - 至今 (一年級在讀)</p>
+        <section class="section">
+            <h2 class="section-title">教育背景 / Education</h2>
+            <div class="item-row">
+                <div class="item-time">2025 - 至今</div>
+                <div class="item-desc">
+                    <h4>亞洲大學</h4>
+                    <p>室內設計學系 | 一年級在學</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">作品項目 / Projects</h2>
+            <div class="section-content">
+                <ul class="project-list">
+                    <li>咖啡廳空間平面配置設計</li>
+                    <li>快閃店品牌模型設計</li>
+                    <li>室內照明天花板設計圖</li>
+                    <li>室內空間比例模型製作</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section" style="border-top: 1px solid #eee; padding-top: 20px;">
+            <button onclick="showEmail()">顯示完整 Email</button>
+            <span id="email-display"></span>
         </section>
     </main>
 </div>
 
 <script>
-function showEmail(){
-    document.getElementById("email-text").innerText = "114055011@live.asia.edu.tw";
-}
+    function showEmail(){
+        document.getElementById("email-display").innerText = "114055011@live.asia.edu.tw";
+    }
 </script>
 
 </body>
