@@ -6,77 +6,108 @@
 <title>個人履歷 | 温心芸</title>
 
 <style>
+*{
+    box-sizing:border-box;
+}
+
 body{
     margin:0;
-    font-family: "Noto Sans TC", sans-serif;
-    background:#f5f5f5;
+    font-family:"Noto Sans TC", sans-serif;
+    background:#f5f7fa;
     color:#333;
 }
 
+/* 頭部 */
 header{
-    background:#2c3e50;
+    background:linear-gradient(135deg,#2c3e50,#4ca1af);
     color:white;
     text-align:center;
-    padding:40px 20px;
+    padding:60px 20px 80px 20px;
 }
 
 header img{
-    width:150px;
-    height:150px;
+    width:160px;
+    height:160px;
     border-radius:50%;
     object-fit:cover;
-    border:4px solid white;
+    border:5px solid white;
+    box-shadow:0 6px 20px rgba(0,0,0,0.25);
 }
 
 header h1{
     margin:15px 0 5px 0;
+    font-size:30px;
 }
 
+header p{
+    margin:0;
+    opacity:0.9;
+}
+
+/* 主內容 */
 .container{
     max-width:900px;
-    margin:auto;
+    margin:-60px auto 30px auto;
     padding:20px;
 }
 
+/* 卡片 */
 section{
     background:white;
-    padding:20px;
+    padding:25px;
     margin-bottom:20px;
-    border-radius:10px;
-    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+    transition:0.3s;
 }
 
+section:hover{
+    transform:translateY(-5px);
+}
+
+/* 標題 */
 h2{
-    border-left:5px solid #3498db;
+    border-left:6px solid #4ca1af;
     padding-left:10px;
+    margin-bottom:15px;
 }
 
+/* 技能 */
 .skill{
     display:inline-block;
-    background:#3498db;
+    background:#4ca1af;
     color:white;
-    padding:5px 10px;
+    padding:6px 12px;
     margin:5px;
-    border-radius:5px;
+    border-radius:20px;
+    font-size:14px;
 }
 
+/* 清單 */
+ul{
+    padding-left:20px;
+}
+
+/* 按鈕 */
 button{
     padding:10px 20px;
     border:none;
-    background:#3498db;
+    background:#4ca1af;
     color:white;
-    border-radius:5px;
+    border-radius:20px;
     cursor:pointer;
+    transition:0.3s;
 }
 
 button:hover{
-    background:#2980b9;
+    background:#2c3e50;
 }
 
+/* footer */
 footer{
     text-align:center;
     padding:20px;
-    color:#777;
+    color:#888;
 }
 </style>
 </head>
@@ -84,7 +115,8 @@ footer{
 <body>
 
 <header>
-    <img src="images/photo.jpg" alt="個人照片">
+    <!-- ⚠️ 確保圖片放在 images/225570.jpg -->
+    <img src="images/225570.jpg" alt="個人照片">
     <h1>温心芸</h1>
     <p>亞洲大學 室內設計學系 一年級</p>
 </header>
@@ -103,8 +135,8 @@ footer{
 <section>
 <h2>關於我</h2>
 <p>
-我是亞洲大學室內設計系一年級學生，對空間設計與環境氛圍營造非常有興趣，
-目前正在學習空間規劃、模型製作以及設計基礎，希望未來可以成為一名專業的室內設計師。
+我是亞洲大學室內設計系一年級學生，對空間設計與氛圍營造有濃厚興趣，
+目前學習空間規劃、模型製作與設計基礎，希望未來成為專業室內設計師。
 </p>
 </section>
 
@@ -129,9 +161,9 @@ footer{
 
 <section>
 <h2>聯絡我</h2>
-<p>如果想要聯絡我，可以點擊下面按鈕：</p>
+<p>點擊按鈕顯示 Email：</p>
 <button onclick="showEmail()">顯示 Email</button>
-<p id="email"></p>
+<p id="email" style="margin-top:10px;"></p>
 </section>
 
 </div>
